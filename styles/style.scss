@@ -1,0 +1,301 @@
+@import "variables";
+@import "modules";
+
+* {
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: $bg-color;
+  font-family: $main-font;
+  box-sizing: border-box;
+  overflow-x: hidden;
+
+}
+
+// header
+
+header {
+    display: flex;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    background-color: $bg-color;
+
+    nav {
+        display: flex;
+        align-items: center;
+
+
+        a {
+        text-decoration: none;
+        color: $text-color;
+
+        &:hover {
+            color: $hover-color;
+            transition: all 0.4s;
+            }
+
+         @include mobile{
+            display: none;
+            }
+        }    
+    }
+    .opener{
+        display: none;
+        position: absolute;
+        right: 0;
+        bottom: -200px;
+        background-color: rgb(220, 220, 220);
+        box-shadow: 2px 2px 10px;
+        flex-direction: column;
+        gap: 10px;
+        border-radius: 10px;
+        padding: 5px;
+        a{
+            text-decoration: none;
+            color: black;
+        }
+    }
+    .menu{
+        width: 50px;
+        height: 40;
+        display: none;
+        @include mobile{
+            display: block;
+        }
+        &:hover  + .opener{
+            display: flex;
+        }
+    }
+
+    img {
+    width: 100px;
+    }
+
+ }
+
+  
+  #nav-left {
+    a {
+      padding: 0 10px;
+
+      &:nth-of-type(-n + 2) {
+        border-right: 1px solid gray;
+      }
+    }
+  }
+
+  #nav-right {
+    column-gap: 20px;
+  }
+
+// Landing section
+
+.hero {
+  display: flex;
+  justify-content: space-between;
+  background: linear-gradient(rgb(215, 215, 215) 33%, $bg-color 30%);
+  padding: 50px 100px;
+
+  @include tablet {
+    flex-direction: column;
+    align-items: center;
+    gap: 100px;
+  }
+
+  @include mobile {
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 40px;
+  }
+
+  .slogan {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+    max-width: 500px;
+
+    @include mobile {
+      gap: 20px;
+    }
+
+    h1 {
+      span {
+        font-family: "Times New Roman", Times, serif;
+      }
+
+      @extend %heading;
+      font-size: 40px;
+
+      @include mobile {
+        text-align: center;
+      }
+    }
+    p {
+      @extend %p;
+    }
+
+    img {
+      mix-blend-mode: darken;
+      width: 200px;
+    }
+
+    h2 {
+      @extend %heading;
+    }
+
+    button {
+      @extend %button;
+      background-color: crimson;
+      &:hover {
+        background-color: rgb(156, 16, 44);
+        transition: all 0.4s;
+      }
+    }
+  }
+
+  .images {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+
+    img:first-child {
+      mix-blend-mode: darken;
+      max-width: 750px;
+
+      @include tablet {
+        max-width: 700px;
+      }
+
+      @include mobile {
+        max-width: 500px;
+      }
+    }
+
+    img:nth-child(2) {
+      mix-blend-mode: darken;
+      max-width: 400px;
+    }
+
+    p {
+      max-width: 400px;
+      text-align: center;
+    }
+  }
+}
+
+//interior
+#interior {
+  @extend %desing;
+  background-image: radial-gradient(rgba(0, 0, 0, 0.5), black),
+    url(../images/interior.jpg);
+    p{
+        font-size: 17px;
+        @include mobile{
+            font-size: 15px;
+        }
+    }
+}
+
+//Cars
+
+.cars-area{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 50px 0;
+
+    .cars{
+         display: flex;
+
+        @include mobile{
+            flex-direction: column;
+            }
+
+        img{
+            width: 300px;
+            mix-blend-mode: darken;
+            }
+        }
+        h3{
+            text-align: center
+        }
+    button{
+        @extend %button;
+        background-color: rgba(0, 255, 255, 0.97);
+        margin-top: 30px;
+
+         &:hover {
+        background-color: rgb(16, 213, 213);
+        transition: all 0.4s;
+      }
+    }
+}
+
+//exterior
+#exterior {
+  @extend %desing;
+  background-image: radial-gradient(rgba(0, 0, 0, 0.5), black),
+    url(../images/exterior-4.jpg);
+
+    p{
+        font-size: 17px;
+        @include mobile{
+            font-size: 15px;
+        }
+    }
+}
+
+//footer
+
+footer{
+    display: flex;
+    align-items: center;
+    justify-content:space-around;
+    background-color: black;
+    color: white;
+    padding: 50px;
+    @include mobile{
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .footer-pages{
+        display: flex;
+        gap: 30px;
+
+        @include mobile{
+        flex-direction: column;
+        align-items: center;
+    }
+
+        h2{
+            @extend %heading;
+            color: white;
+            text-align: center;
+        }
+        div{
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            padding-right: 20px;
+            
+        }
+        a{
+            text-align: center;
+            text-decoration: none;
+            color: white;
+        }
+    }
+
+    img{
+    width: 100px;
+    height: auto;
+    }
+}
